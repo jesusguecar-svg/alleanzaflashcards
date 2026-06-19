@@ -24,10 +24,10 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { domainSlug } = await params;
   const domain = getDomain(domainSlug);
-  if (!domain) return { title: "Deck not found" };
+  if (!domain) return { title: "Mazo no encontrado" };
   return {
     title: `${domain.title} · Flashcards`,
-    description: `${domain.cardCount} study flashcards for ${domain.title}.`,
+    description: `${domain.cardCount} flashcards de estudio sobre ${domain.title}.`,
   };
 }
 

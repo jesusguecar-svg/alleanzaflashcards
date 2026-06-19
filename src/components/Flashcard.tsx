@@ -26,7 +26,7 @@ export function Flashcard({ card, flipped, status, onFlip }: FlashcardProps) {
         type="button"
         onClick={onFlip}
         aria-pressed={flipped}
-        aria-label={flipped ? "Show question" : "Show answer"}
+        aria-label={flipped ? "Mostrar pregunta" : "Mostrar respuesta"}
         className={`flip-card cursor-pointer text-left outline-none focus-visible:[&>*]:ring-2 focus-visible:[&>*]:ring-[var(--accent)] ${
           flipped ? "is-flipped" : ""
         }`}
@@ -46,7 +46,7 @@ export function Flashcard({ card, flipped, status, onFlip }: FlashcardProps) {
             {card.question}
           </h2>
           <span className="mt-6 text-xs text-[var(--muted)]">
-            Tap or press Space to reveal
+            Toca o pulsa Espacio para ver la respuesta
           </span>
         </div>
 

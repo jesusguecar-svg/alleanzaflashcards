@@ -192,7 +192,7 @@ export function FlashcardDeck({ domain, allDomains }: FlashcardDeckProps) {
               href="/"
               className="text-sm font-medium text-[var(--muted)] hover:text-[var(--accent)]"
             >
-              ← All decks
+              ← Todos los mazos
             </Link>
             <DeckSwitcher current={domain.slug} domains={allDomains} />
           </div>
@@ -200,7 +200,7 @@ export function FlashcardDeck({ domain, allDomains }: FlashcardDeckProps) {
             {domain.domain && (
               <p className="text-xs font-semibold uppercase tracking-wide text-[var(--accent)]">
                 {domain.domain}
-                {domain.weight ? ` · ${domain.weight}% of exam` : ""}
+                {domain.weight ? ` · ${domain.weight}% del examen` : ""}
               </p>
             )}
             <h1 className="text-xl font-bold sm:text-2xl">{domain.title}</h1>
@@ -212,12 +212,12 @@ export function FlashcardDeck({ domain, allDomains }: FlashcardDeckProps) {
       <section className="flex flex-col gap-2">
         <div className="flex items-center justify-between text-sm">
           <span className="font-medium">
-            Card {pos + 1} / {total}
+            Tarjeta {pos + 1} / {total}
           </span>
           <span className="flex items-center gap-3 text-xs">
-            <span className="text-[var(--known)]">● {knownCount} known</span>
-            <span className="text-[var(--unknown)]">● {unknownCount} review</span>
-            <span className="text-[var(--muted)]">{answered}/{total} done</span>
+            <span className="text-[var(--known)]">● {knownCount} dominadas</span>
+            <span className="text-[var(--unknown)]">● {unknownCount} repasar</span>
+            <span className="text-[var(--muted)]">{answered}/{total} hechas</span>
           </span>
         </div>
         <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--card-border)]">
@@ -241,7 +241,7 @@ export function FlashcardDeck({ domain, allDomains }: FlashcardDeckProps) {
                 key={domain.cards[cardIdx].id}
                 type="button"
                 onClick={() => goTo(i)}
-                title={`Go to card ${i + 1}`}
+                title={`Ir a la tarjeta ${i + 1}`}
                 className={`h-2.5 w-2.5 rounded-full transition-transform hover:scale-125 ${color} ${
                   i === pos ? "ring-2 ring-offset-1 ring-[var(--accent)]" : ""
                 }`}
@@ -268,14 +268,14 @@ export function FlashcardDeck({ domain, allDomains }: FlashcardDeckProps) {
           onClick={() => mark("unknown")}
           className="rounded-lg border border-[var(--unknown)] py-2.5 text-sm font-semibold text-[var(--unknown)] transition-colors hover:bg-[var(--unknown)] hover:text-white"
         >
-          Still learning (J)
+          En estudio (J)
         </button>
         <button
           type="button"
           onClick={() => mark("known")}
           className="rounded-lg border border-[var(--known)] py-2.5 text-sm font-semibold text-[var(--known)] transition-colors hover:bg-[var(--known)] hover:text-white"
         >
-          Got it (K)
+          Dominada (K)
         </button>
       </div>
 
@@ -288,14 +288,14 @@ export function FlashcardDeck({ domain, allDomains }: FlashcardDeckProps) {
             disabled={pos === 0}
             className="rounded-lg border border-[var(--card-border)] bg-[var(--card)] px-4 py-2 text-sm font-medium disabled:opacity-40"
           >
-            ← Prev
+            ← Anterior
           </button>
           <button
             type="button"
             onClick={flip}
             className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white"
           >
-            Flip
+            Voltear
           </button>
           <button
             type="button"
@@ -303,7 +303,7 @@ export function FlashcardDeck({ domain, allDomains }: FlashcardDeckProps) {
             disabled={pos === total - 1}
             className="rounded-lg border border-[var(--card-border)] bg-[var(--card)] px-4 py-2 text-sm font-medium disabled:opacity-40"
           >
-            Next →
+            Siguiente →
           </button>
         </div>
         <div className="flex gap-2">
@@ -311,32 +311,32 @@ export function FlashcardDeck({ domain, allDomains }: FlashcardDeckProps) {
             type="button"
             onClick={shuffle}
             className="rounded-lg border border-[var(--card-border)] bg-[var(--card)] px-3 py-2 text-sm font-medium hover:border-[var(--accent)]"
-            title="Shuffle the deck (S)"
+            title="Barajar el mazo (S)"
           >
-            🔀 Shuffle
+            🔀 Barajar
           </button>
           <button
             type="button"
             onClick={resetOrder}
             className="rounded-lg border border-[var(--card-border)] bg-[var(--card)] px-3 py-2 text-sm font-medium hover:border-[var(--accent)]"
-            title="Restore original card order"
+            title="Restaurar el orden original"
           >
-            ↺ Order
+            ↺ Orden
           </button>
           <button
             type="button"
             onClick={resetScore}
             className="rounded-lg border border-[var(--card-border)] bg-[var(--card)] px-3 py-2 text-sm font-medium hover:border-[var(--accent)]"
-            title="Clear known/review progress for this deck"
+            title="Borrar el progreso de este mazo"
           >
-            ✕ Reset score
+            ✕ Reiniciar
           </button>
         </div>
       </div>
 
       {!embed && (
         <p className="text-center text-xs text-[var(--muted)]">
-          Shortcuts: ← / → navigate · Space flip · K got it · J still learning · S shuffle
+          Atajos: ← / → navegar · Espacio voltear · K dominada · J en estudio · S barajar
         </p>
       )}
     </main>
@@ -353,7 +353,7 @@ function DeckSwitcher({
   return (
     <div className="relative">
       <select
-        aria-label="Switch deck"
+        aria-label="Cambiar de mazo"
         value={current}
         onChange={(e) => {
           window.location.href = `/${e.target.value}/`;

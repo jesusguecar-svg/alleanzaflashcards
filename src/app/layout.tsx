@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Life & Health Exam Flashcards",
+  title: "Flashcards del examen Life & Health",
   description:
-    "Interactive study flashcards for the Texas Life & Health insurance exam domains.",
+    "Flashcards interactivas para estudiar los dominios del examen de seguros Life & Health.",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

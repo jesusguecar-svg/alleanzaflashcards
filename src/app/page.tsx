@@ -9,11 +9,11 @@ export default function Home() {
     <main className="mx-auto w-full max-w-3xl flex-1 p-5 sm:p-8">
       <header className="mb-8">
         <h1 className="text-2xl font-bold sm:text-3xl">
-          Life &amp; Health Exam Flashcards
+          Flashcards del examen Life &amp; Health
         </h1>
         <p className="mt-2 text-sm text-[var(--muted)]">
-          {domains.length} decks · {totalCards} cards. Pick a domain to start
-          studying.
+          {domains.length} mazos · {totalCards} tarjetas. Elige un dominio para
+          empezar a estudiar.
         </p>
       </header>
 
@@ -34,7 +34,7 @@ export default function Home() {
                 {d.title}
               </span>
               <span className="mt-auto pt-3 text-sm text-[var(--muted)]">
-                {d.cardCount} cards →
+                {d.cardCount} tarjetas →
               </span>
             </Link>
           </li>
